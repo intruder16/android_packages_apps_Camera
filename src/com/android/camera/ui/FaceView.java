@@ -30,6 +30,9 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.Display;
+import android.view.WindowManager;
+import android.content.Context;
 
 import com.android.camera.CameraActivity;
 import com.android.camera.CameraScreenNail;
@@ -178,9 +181,10 @@ public class FaceView extends View implements FocusIndicator, Rotatable {
     @Override
     protected void onDraw(Canvas canvas) {
         if (!mBlocked && (mFaces != null) && (mFaces.length > 0)) {
-            final CameraScreenNail sn = ((CameraActivity) getContext()).getCameraScreenNail();
-            int rw = sn.getUncroppedRenderWidth();
-            int rh = sn.getUncroppedRenderHeight();
+            WindowManager mWM = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+            Display display = mWM.getDefaultDisplay();
+            int rw = display.getWidth();
+            int rh = display.getHeight();
             // Prepare the matrix.
             if (((rh > rw) && ((mDisplayOrientation == 0) || (mDisplayOrientation == 180)))
                     || ((rw > rh) && ((mDisplayOrientation == 90) || (mDisplayOrientation == 270)))) {
