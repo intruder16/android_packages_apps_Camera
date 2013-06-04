@@ -63,7 +63,7 @@ public class CameraActivity extends ActivityBase
     private static final int[] DRAW_IDS = {
             R.drawable.ic_switch_camera,
             R.drawable.ic_switch_video,
-            R.drawable.ic_switch_pan,
+           // R.drawable.ic_switch_pan,
             R.drawable.ic_switch_photosphere
     };
 
@@ -72,8 +72,8 @@ public class CameraActivity extends ActivityBase
         super.onCreate(state);
         setContentView(R.layout.camera_main);
         mFrame =(FrameLayout) findViewById(R.id.main_content);
-        mDrawables = new Drawable[DRAW_IDS.length];
-        for (int i = 0; i < DRAW_IDS.length; i++) {
+        mDrawables = new Drawable[DRAW_IDS.length-1];
+        for (int i = 0; i < DRAW_IDS.length-1; i++) {
             mDrawables[i] = getResources().getDrawable(DRAW_IDS[i]);
         }
         init();
