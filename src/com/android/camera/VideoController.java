@@ -69,7 +69,6 @@ public class VideoController extends PieController
                     // Find the index of next camera.
                     ListPreference pref = mPreferenceGroup.findPreference(CameraSettings.KEY_CAMERA_ID);
                     if (pref != null) {
-                        Util.mSwitchCamera = true;
                         int index = pref.findIndexOfValue(pref.getValue());
                         CharSequence[] values = pref.getEntryValues();
                         index = (index + 1) % values.length;

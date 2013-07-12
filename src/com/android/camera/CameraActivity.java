@@ -161,7 +161,6 @@ public class CameraActivity extends ActivityBase
         CameraHolder.instance().keep();
         closeModule(mCurrentModule);
         mCurrentModuleIndex = i;
-        Util.mSwitchCamera = true;
         switch (i) {
             case VIDEO_MODULE_INDEX:
                 mCurrentModule = new VideoModule();
